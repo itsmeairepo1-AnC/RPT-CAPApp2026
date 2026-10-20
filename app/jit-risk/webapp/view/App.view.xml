@@ -1,0 +1,44 @@
+<mvc:View
+    controllerName="jit.risk.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    <App id="app">
+        <Page>
+            <customHeader>
+                <Bar class="appHeaderBar">
+                    <contentLeft>
+                        <HBox alignItems="Center" class="headerLeftGroup">
+                            <Text text="SAP" class="sapLogoBadge" wrapping="false"/>
+                            <Text text="JIT Supply Chain Risk" class="headerAppTitle" wrapping="false"/>
+                        </HBox>
+                    </contentLeft>
+                    <contentRight>
+                        <Text text="Supply Chain Risk Management" class="headerSubtitle" wrapping="false"/>
+                    </contentRight>
+                </Bar>
+            </customHeader>
+            <content>
+                <IconTabBar
+                    id="idIconTabBar"
+                    select=".onTabSelect"
+                    class="sapUiResponsiveContentPadding appTabBar">
+                    <items>
+                        <IconTabFilter
+                            key="dashboard"
+                            icon="sap-icon://bar-chart"
+                            text="Dashboard"/>
+                        <IconTabFilter
+                            key="predict"
+                            icon="sap-icon://simulate"
+                            text="Predict"/>
+                        <IconTabFilter
+                            key="chat"
+                            icon="sap-icon://discussion"
+                            text="Chat Assistant"/>
+                    </items>
+                </IconTabBar>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

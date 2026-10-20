@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <l:VerticalLayout class="sapUiContentPadding" width="100%">
+        
+        <!-- Chat Messages Area -->
+        <Panel headerText="Chat Assistant" class="sapUiResponsiveMargin">
+            <content>
+                <ScrollContainer
+                    id="chatScrollContainer"
+                    height="500px"
+                    width="100%"
+                    vertical="true"
+                    horizontal="false"
+                    class="chatScrollContainer">
+                    
+                    <List
+                        id="chatFeed"
+                        items="{chatModel>/messages}"
+                        showNoData="false"
+                        class="chatFeedList">
+                        <CustomListItem class="{= ${chatModel>sender} === 'user' ? 'chatMessageUser' : 'chatMessageBot' }">
+                            <VBox class="chatBubbleContainer">
+                                <HBox alignItems="Start" class="chatMessageBox">
+                                    <VBox class="chatBubble {= ${chatModel>sender} === 'user' ? 'userBubble' : 'botBubble' }">
+                                        <FormattedText
+                                            htmlText="{chatModel>text}"
+                                            class="chatMessageText"/>
+                                        
+                                        <!-- Button container - populated dynamically by controller -->
+                                        <HBox class="chatButtonContainer" wrap="Wrap"/>
+                                    </VBox>
+                                </HBox>
+                                <Text text="{chatModel>timestamp}" class="chatTimestamp"/>
+                            </VBox>
+                        </CustomListItem>
+                    </List>
+                </ScrollContainer>
+                
+                <!-- Input Area -->
+                <Bar class="chatInputBar">
+                    <contentLeft>
+                        <Input
+                            id="chatInput"
+                            placeholder="Type your message or select an action..."
+                            width="100%"
+                            submit=".onSendMessage"
+                            class="chatInputField"/>
+                    </contentLeft>
+                    <contentRight>
+                        <Button
+                            icon="sap-icon://paper-plane"
+                            text="Send"
+                            type="Emphasized"
+                            press=".onSendMessage"/>
+                    </contentRight>
+                </Bar>
+            </content>
+        </Panel>
+
+    </l:VerticalLayout>
+</core:FragmentDefinition>
