@@ -1,0 +1,10 @@
+{
+  "destinations": [
+    {
+      "name": "RPT-2026-API",
+      "url": "<deployed python API>",
+      "Authentication": "NoAuthentication",
+      "forwardAuthToken": false
+    }
+  ]
+}
