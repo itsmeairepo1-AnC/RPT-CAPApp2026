@@ -42,23 +42,30 @@
                 </ScrollContainer>
                 
                 <!-- Input Area -->
-                <Bar class="chatInputBar">
-                    <contentLeft>
+                <!-- <Bar class="chatInputBar"> -->
+                <HBox class="chatInputBar" alignItems="Center" width="100%">
+                    <!-- <contentLeft> -->
                         <Input
                             id="chatInput"
                             placeholder="Type your message or select an action..."
-                            width="100%"
+                            
                             submit=".onSendMessage"
-                            class="chatInputField"/>
-                    </contentLeft>
-                    <contentRight>
+                            class="chatInputField"
+                            >
+                             <layoutData><FlexItemData growFactor="1"/></layoutData>
+                             </Input>
+                            
+                    <!-- </contentLeft>
+                    <contentRight> -->
                         <Button
                             icon="sap-icon://paper-plane"
                             text="Send"
                             type="Emphasized"
-                            press=".onSendMessage"/>
-                    </contentRight>
-                </Bar>
+                            press=".onSendMessage"
+                        class="chatSendButton"/>
+                </HBox>
+                    <!-- </contentRight> -->
+                <!-- </Bar> -->
             </content>
         </Panel>
 
